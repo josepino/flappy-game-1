@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>SchemeUserState</key>
+	<dict>
+		<key>Flypi Fly.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>0</integer>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>AEE0AD9C1F7176C70074C6A1</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>AEE0ADB61F7176C80074C6A1</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>AEE0ADC11F7176C80074C6A1</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+	</dict>
+</dict>
+</plist>
