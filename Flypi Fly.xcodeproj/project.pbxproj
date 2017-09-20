@@ -17,6 +17,11 @@
 		AEE0ADB11F7176C70074C6A1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AEE0ADAF1F7176C70074C6A1 /* LaunchScreen.storyboard */; };
 		AEE0ADBC1F7176C80074C6A1 /* Flypi_FlyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE0ADBB1F7176C80074C6A1 /* Flypi_FlyTests.swift */; };
 		AEE0ADC71F7176C80074C6A1 /* Flypi_FlyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE0ADC61F7176C80074C6A1 /* Flypi_FlyUITests.swift */; };
+		AEE0ADD91F72A4EF0074C6A1 /* fly1.png in Resources */ = {isa = PBXBuildFile; fileRef = AEE0ADD41F72A4EF0074C6A1 /* fly1.png */; };
+		AEE0ADDA1F72A4EF0074C6A1 /* fly2.png in Resources */ = {isa = PBXBuildFile; fileRef = AEE0ADD51F72A4EF0074C6A1 /* fly2.png */; };
+		AEE0ADDB1F72A4EF0074C6A1 /* fondo.png in Resources */ = {isa = PBXBuildFile; fileRef = AEE0ADD61F72A4EF0074C6A1 /* fondo.png */; };
+		AEE0ADDC1F72A4EF0074C6A1 /* Tubo1.png in Resources */ = {isa = PBXBuildFile; fileRef = AEE0ADD71F72A4EF0074C6A1 /* Tubo1.png */; };
+		AEE0ADDD1F72A4EF0074C6A1 /* Tubo2.png in Resources */ = {isa = PBXBuildFile; fileRef = AEE0ADD81F72A4EF0074C6A1 /* Tubo2.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +58,11 @@
 		AEE0ADC21F7176C80074C6A1 /* Flypi FlyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Flypi FlyUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AEE0ADC61F7176C80074C6A1 /* Flypi_FlyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Flypi_FlyUITests.swift; sourceTree = "<group>"; };
 		AEE0ADC81F7176C80074C6A1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AEE0ADD41F72A4EF0074C6A1 /* fly1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fly1.png; sourceTree = "<group>"; };
+		AEE0ADD51F72A4EF0074C6A1 /* fly2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fly2.png; sourceTree = "<group>"; };
+		AEE0ADD61F72A4EF0074C6A1 /* fondo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fondo.png; sourceTree = "<group>"; };
+		AEE0ADD71F72A4EF0074C6A1 /* Tubo1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Tubo1.png; sourceTree = "<group>"; };
+		AEE0ADD81F72A4EF0074C6A1 /* Tubo2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Tubo2.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +119,11 @@
 				AEE0ADA61F7176C70074C6A1 /* GameScene.swift */,
 				AEE0ADA81F7176C70074C6A1 /* GameViewController.swift */,
 				AEE0ADAA1F7176C70074C6A1 /* Main.storyboard */,
+				AEE0ADD41F72A4EF0074C6A1 /* fly1.png */,
+				AEE0ADD51F72A4EF0074C6A1 /* fly2.png */,
+				AEE0ADD61F72A4EF0074C6A1 /* fondo.png */,
+				AEE0ADD71F72A4EF0074C6A1 /* Tubo1.png */,
+				AEE0ADD81F72A4EF0074C6A1 /* Tubo2.png */,
 				AEE0ADAD1F7176C70074C6A1 /* Assets.xcassets */,
 				AEE0ADAF1F7176C70074C6A1 /* LaunchScreen.storyboard */,
 				AEE0ADB21F7176C70074C6A1 /* Info.plist */,
@@ -246,9 +261,14 @@
 			files = (
 				AEE0ADAC1F7176C70074C6A1 /* Main.storyboard in Resources */,
 				AEE0ADA31F7176C70074C6A1 /* GameScene.sks in Resources */,
+				AEE0ADDB1F72A4EF0074C6A1 /* fondo.png in Resources */,
 				AEE0ADAE1F7176C70074C6A1 /* Assets.xcassets in Resources */,
 				AEE0ADB11F7176C70074C6A1 /* LaunchScreen.storyboard in Resources */,
 				AEE0ADA51F7176C70074C6A1 /* Actions.sks in Resources */,
+				AEE0ADDC1F72A4EF0074C6A1 /* Tubo1.png in Resources */,
+				AEE0ADDA1F72A4EF0074C6A1 /* fly2.png in Resources */,
+				AEE0ADDD1F72A4EF0074C6A1 /* Tubo2.png in Resources */,
+				AEE0ADD91F72A4EF0074C6A1 /* fly1.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
