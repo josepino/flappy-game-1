@@ -16,9 +16,19 @@ class GameScene: SKScene {
     
     override func didMove(to view: SKView) {
         
-        let texturaMosca = SKTexture(imageNamed: "fly1.png")
-        mosca = SKSpriteNode(texture: texturaMosca)
+        let texturaMosca1 = SKTexture(imageNamed: "fly1.png")
+        let texturaMosca2 = SKTexture(imageNamed: "fly2.png")
+        
+        let animacion = SKAction.animate(with:[texturaMosca1, texturaMosca2], timePerFrame: 0.08)
+        
+        let animacionInfinita = SKAction.repeatForever(animacion)
+        
+        
+        mosca = SKSpriteNode(texture: texturaMosca1)
+        
         mosca.position = CGPoint(x:0.0, y:0.0)
+        
+        mosca.run(animacionInfinita)
         
         self.addChild(mosca)
     }
