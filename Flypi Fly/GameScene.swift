@@ -39,9 +39,7 @@ class GameScene: SKScene {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         mosca.physicsBody = SKPhysicsBody(circleOfRadius: texturaMosca1.size().height/2)  //Le agregamos un cuerpo fisico a la mosca redondo
         mosca.physicsBody!.isDynamic = true
-        
         mosca.physicsBody!.velocity = (CGVector(dx: 0, dy: 0))
-        
         mosca.physicsBody!.applyImpulse(CGVector(dx: 0, dy: 100))
         
     }
@@ -132,8 +130,7 @@ class GameScene: SKScene {
         
         mosca = SKSpriteNode(texture: texturaMosca1)
         mosca.position = CGPoint(x:self.frame.midX, y:self.frame.midY)
-        
-        
+        mosca.zPosition = 1
         
         mosca.run(animacionInfinita)
         
