@@ -47,6 +47,15 @@ class GameScene: SKScene {
         }
         
         
+        // Suelo
+        let suelo = SKNode()
+        suelo.position = CGPoint(x:-self.frame.midX, y:-self.frame.height/2)
+        suelo.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width:self.frame.width, height:1))
+        suelo.physicsBody!.isDynamic = false
+        self.addChild(suelo)
+        
+        
+        
         
         
         // Para la mosca
@@ -70,11 +79,12 @@ class GameScene: SKScene {
     
     
     
-    //Cuando el usuario pulsa la pantalla
+    // Cuando el usuario pulsa la pantalla
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         mosca.physicsBody = SKPhysicsBody(circleOfRadius: texturaMosca1.size().height/2)  //Le agregamos un cuerpo fisico a la mosca redondo
         mosca.physicsBody!.isDynamic = true
         
+        mosca.physicsBody!.velocity = (CGVector(dx: 0, dy: 0))
         
         mosca.physicsBody!.applyImpulse(CGVector(dx: 0, dy: 100))
         
