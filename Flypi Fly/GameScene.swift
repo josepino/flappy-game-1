@@ -15,11 +15,15 @@ class GameScene: SKScene {
     var fondo = SKSpriteNode()
     var texturaMosca1 = SKTexture(imageNamed: "fly1.png")
     
+    var tubo1 = SKSpriteNode()   // Para el tubo1 con la entrada por abajo
+    var tubo2 = SKSpriteNode()   // Para el tubo2 con la entrada por arriba
     
     
     override func didMove(to view: SKView) {
         
         agregarFondo()
+        agregarTubos()
+        
         agregarSuelo()
         agregarMosca()
         
@@ -78,6 +82,29 @@ class GameScene: SKScene {
             self.addChild(fondo)
             i += 1
         }
+    }
+    
+    
+    
+    
+    // Para agregar los tubos
+    func agregarTubos() {
+        let texturaTubo1 = SKTexture(imageNamed: "Tubo1")
+        tubo1 = SKSpriteNode(texture: texturaTubo1)
+        tubo1.position = CGPoint(x:self.frame.midX, y:self.frame.midY + texturaTubo1.size().height/1.5)
+        tubo1.size.height = self.frame.height
+        tubo1.zPosition = 0
+        
+        self.addChild(tubo1)
+        
+        
+        let texturaTubo2 = SKTexture(imageNamed: "Tubo2")
+        tubo2 = SKSpriteNode(texture: texturaTubo2)
+        tubo2.position = CGPoint(x:self.frame.midX, y:self.frame.midY - texturaTubo2.size().height/1.5)
+        tubo2.size.height = self.frame.height
+        tubo2.zPosition = 0
+        
+        self.addChild(tubo2)
     }
     
     
