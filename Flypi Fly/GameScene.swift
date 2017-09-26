@@ -21,11 +21,11 @@ class GameScene: SKScene {
     
     override func didMove(to view: SKView) {
         
+        agregarMosca()
         agregarFondo()
         agregarTubos()
-        
         agregarSuelo()
-        agregarMosca()
+        
         
         
         
@@ -87,21 +87,31 @@ class GameScene: SKScene {
     
     // Para agregar los tubos
     func agregarTubos() {
+        
+        let moverTubos = SKAction.move(by: CGVector(dx: -3 * self.frame.width, dy: 0), duration: TimeInterval(self.frame.width/80))
+        
+        let gapDificultad = mosca.size.height * 3 // Para la separación de los tubos
+        
+        let cantidadMovimientoAleatorio = CGFloat(arc4random() % UInt32(self.frame.height/2))
+        let compensacionTubos = cantidadMovimientoAleatorio - self.frame.height/4
+        
         let texturaTubo1 = SKTexture(imageNamed: "Tubo1")
         tubo1 = SKSpriteNode(texture: texturaTubo1)
-        tubo1.position = CGPoint(x:self.frame.midX, y:self.frame.midY + texturaTubo1.size().height/1.5)
+        tubo1.position = CGPoint(x:self.frame.midX + self.frame.width, y:self.frame.midY + texturaTubo1.size().height/2 + gapDificultad + compensacionTubos)
         tubo1.size.height = self.frame.height
         tubo1.zPosition = 0
         
+        tubo1.run(moverTubos)
         self.addChild(tubo1)
         
         
         let texturaTubo2 = SKTexture(imageNamed: "Tubo2")
         tubo2 = SKSpriteNode(texture: texturaTubo2)
-        tubo2.position = CGPoint(x:self.frame.midX, y:self.frame.midY - texturaTubo2.size().height/1.5)
+        tubo2.position = CGPoint(x:self.frame.midX + self.frame.width, y:self.frame.midY - texturaTubo2.size().height/2 - gapDificultad + compensacionTubos)
         tubo2.size.height = self.frame.height
         tubo2.zPosition = 0
         
+        tubo2.run(moverTubos)
         self.addChild(tubo2)
     }
     
