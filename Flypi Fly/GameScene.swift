@@ -21,6 +21,10 @@ class GameScene: SKScene {
     
     override func didMove(to view: SKView) {
         
+        
+        _ = Timer.scheduledTimer(timeInterval: 4, target: self, selector: #selector(self.agregarTubos), userInfo: nil, repeats: true)   // Timer para que aparezcan los tubos cada cierto timeInterval. El guión bajo tiene que ver con wildcard que también se usa por ejemplo en for _ in 1...3 {}
+        
+        
         agregarMosca()
         agregarFondo()
         agregarTubos()
@@ -87,6 +91,8 @@ class GameScene: SKScene {
     
     // Para agregar los tubos
     func agregarTubos() {
+        
+        ///// Seccion 19 - Clase 140 Terminada /////
         
         let moverTubos = SKAction.move(by: CGVector(dx: -3 * self.frame.width, dy: 0), duration: TimeInterval(self.frame.width/80))
         
