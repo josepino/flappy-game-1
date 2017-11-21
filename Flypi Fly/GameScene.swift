@@ -9,7 +9,7 @@
 import SpriteKit
 import GameplayKit
 
-class GameScene: SKScene {
+class GameScene: SKScene, SKPhysicsContactDelegate {
     
     var mosca = SKSpriteNode()
     var fondo = SKSpriteNode()
@@ -18,9 +18,16 @@ class GameScene: SKScene {
     var tubo1 = SKSpriteNode()   // Para el tubo1 con la entrada por abajo
     var tubo2 = SKSpriteNode()   // Para el tubo2 con la entrada por arriba
     
+    enum tipoNodo: UInt32 {      // Para las identificar y diferenciar los nodos/objetos. Tiene que ver con las colisiones
+        case mosca = 1
+        case tuboSuelo = 2    // Representa el suelo y los tubos. Ya que si choca con el suelo o tubo es lo mismo
+        case espacioTubos = 4 // El espacio donde pasa la mosca entre los tubos
+    }
+    
     
     override func didMove(to view: SKView) {
         
+        self.physicsWorld.contactDelegate = self  // Para las colisiones
         
         _ = Timer.scheduledTimer(timeInterval: 4, target: self, selector: #selector(self.agregarTubos), userInfo: nil, repeats: true)   // Timer para que aparezcan los tubos cada cierto timeInterval. El guión bajo tiene que ver con wildcard que también se usa por ejemplo en for _ in 1...3 {}
         
@@ -29,6 +36,7 @@ class GameScene: SKScene {
         agregarFondo()
         agregarTubos()
         agregarSuelo()
+        //agregarEspacios()  //Falta hacer la funcion, nos quedamos en la Clase 150
         
         
         
@@ -41,13 +49,18 @@ class GameScene: SKScene {
     
     // Cuando el usuario pulsa la pantalla
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        mosca.physicsBody = SKPhysicsBody(circleOfRadius: texturaMosca1.size().height/2)  //Le agregamos un cuerpo fisico a la mosca redondo
-        mosca.physicsBody!.isDynamic = true
+        
+        mosca.physicsBody!.isDynamic = true     // Cuando toca la pantalla el usuario se activa la "gravedad". O sea el cuerpo de la mosca tiene propiedas "fisicas"
         mosca.physicsBody!.velocity = (CGVector(dx: 0, dy: 0))
         mosca.physicsBody!.applyImpulse(CGVector(dx: 0, dy: 100))
         
     }
 
+    
+    
+    func didBegin(_ contact: SKPhysicsContact) {        // Funcion que tiene que ver para distinguir los contactos (choques)
+        
+    }
     
     
     override func update(_ currentTime: TimeInterval) {
@@ -96,6 +109,11 @@ class GameScene: SKScene {
         
         let moverTubos = SKAction.move(by: CGVector(dx: -3 * self.frame.width, dy: 0), duration: TimeInterval(self.frame.width/80))
         
+        let removerTubos = SKAction.removeFromParent()
+        
+        let moverRemoverTubos = SKAction.sequence([moverTubos, removerTubos])    // Secuencia de acciones que mueve los tubos y luego remueve
+        
+        
         let gapDificultad = mosca.size.height * 3 // Para la separación de los tubos
         
         let cantidadMovimientoAleatorio = CGFloat(arc4random() % UInt32(self.frame.height/2))
@@ -107,7 +125,10 @@ class GameScene: SKScene {
         tubo1.size.height = self.frame.height
         tubo1.zPosition = 0
         
-        tubo1.run(moverTubos)
+        tubo1.physicsBody = SKPhysicsBody(rectangleOf: texturaTubo1.size())     // Para la fisica de las colisiones de los tubos
+        tubo1.physicsBody!.isDynamic = false
+        
+        tubo1.run(moverRemoverTubos)
         self.addChild(tubo1)
         
         
@@ -117,9 +138,15 @@ class GameScene: SKScene {
         tubo2.size.height = self.frame.height
         tubo2.zPosition = 0
         
-        tubo2.run(moverTubos)
+        tubo2.physicsBody = SKPhysicsBody(rectangleOf: texturaTubo1.size())     // Para la fisica de las colisiones de los tubos
+        tubo2.physicsBody!.isDynamic = false
+        
+        tubo2.run(moverRemoverTubos)
         self.addChild(tubo2)
     }
+    
+    
+    
     
     
     
@@ -146,19 +173,21 @@ class GameScene: SKScene {
         
         mosca = SKSpriteNode(texture: texturaMosca1)
         mosca.position = CGPoint(x:self.frame.midX, y:self.frame.midY)
+        mosca.physicsBody = SKPhysicsBody(circleOfRadius: texturaMosca1.size().height/2)  //Le agregamos un cuerpo fisico a la mosca redondo
         mosca.zPosition = 1
+        
+        mosca.physicsBody!.isDynamic = false            // Para que al comienzo del juego no se caiga la mosca. Para que no se active la fisica al momento cuando se abre la App
         
         mosca.run(animacionInfinita)
         
         self.addChild(mosca)
     }
 
-
-
-
-
-
-
-
+    
+    
+    
+    
+    
+    
 
 }
